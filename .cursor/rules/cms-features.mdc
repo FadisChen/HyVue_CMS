@@ -1,0 +1,45 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# CMS功能指南
+
+本項目是一個前端CMS系統，具有以下主要功能模塊。
+
+## 主要功能模塊
+
+根據[src/router/index.js](mdc:src/router/index.js)中的路由配置，可以看到以下功能模塊：
+
+- 系統管理: `/system` 路由
+- 元件展示: `/component` 路由 
+- 表單元件: `/from` 路由
+- 表格展示: `/table` 路由
+- 卡片展示: `/card` 路由
+- 圖表組件: `/chart` 路由
+- 小部件: `/widget` 路由
+- 新聞添加: `/addNews` 路由
+- 媒體照片: `/mediaPhoto` 路由
+
+## 頁面佈局
+
+頁面佈局位於[src/views/layout/](mdc:src/views/layout)目錄：
+
+- 管理員佈局: `adminLayout.vue`
+- 首頁佈局: `indexPage.vue`
+- 登錄頁面: `loginPage.vue`
+
+## 管理頁面
+
+管理頁面位於[src/views/admin/](mdc:src/views/admin)目錄。
+
+## 開發新功能
+
+開發新功能時，應遵循以下步驟：
+
+1. 在適當的目錄下創建新的Vue元件文件
+2. 在路由配置文件中添加相應的路由
+3. 如果需要，在側邊導航中添加相應的菜單項
+4. 使用Vuetify元件庫構建UI
+5. 實現相應的業務邏輯
+

@@ -1,0 +1,47 @@
+---
+description: 
+globs: *.js
+alwaysApply: false
+---
+# Vuetify 3 使用指南
+
+本項目使用Vuetify 3作為UI框架，配置在[src/plugins/vuetify.js](mdc:src/plugins/vuetify.js)中。
+
+## 主題配置
+
+Vuetify主題配置在plugins目錄中，自定義主題應在該文件中進行設置。
+
+## 常用元件
+
+Vuetify提供了豐富的UI元件庫，包括但不限於：
+
+- `v-app`：應用容器
+- `v-container`、`v-row`、`v-col`：網格系統
+- `v-card`：卡片容器
+- `v-btn`：按鈕
+- `v-text-field`、`v-select`等：表單控件
+- `v-data-table`：資料表格
+- `v-navigation-drawer`：側邊導航
+- `v-app-bar`：頂部應用欄
+
+## 使用方式
+
+在元件中直接使用Vuetify元件：
+
+```vue
+<template>
+  <v-container>
+    <v-row>
+      <v-col cols="12" md="6">
+        <v-card>
+          <v-card-title>標題</v-card-title>
+          <v-card-text>內容</v-card-text>
+          <v-card-actions>
+            <v-btn color="primary">確認</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
+</template>
+

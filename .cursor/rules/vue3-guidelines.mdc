@@ -1,0 +1,49 @@
+---
+description: 
+globs: *.js
+alwaysApply: false
+---
+# Vue 3 開發指南
+
+本項目使用Vue 3的Composition API進行開發。
+
+## 重要特性
+
+- 使用Composition API而非Options API
+- 使用`<script setup>`語法糖
+- 使用Vue Router 4進行路由管理
+- 使用Vuetify 3作為UI框架
+- 使用SASS進行樣式處理
+
+## 元件結構
+
+Vue元件應遵循以下結構：
+
+```vue
+<template>
+  <!-- 模板內容 -->
+</template>
+
+<script setup>
+// 引入
+import { ref, computed, onMounted } from 'vue';
+
+// 數據和方法定義
+const count = ref(0);
+const doubleCount = computed(() => count.value * 2);
+
+// 生命週期鉤子
+onMounted(() => {
+  console.log('Component mounted');
+});
+</script>
+
+<style lang="scss" scoped>
+/* 樣式 */
+</style>
+```
+
+## 路由配置
+
+路由配置在[src/router/index.js](mdc:src/router/index.js)中定義。使用懶加載進行路由元件的載入。
+

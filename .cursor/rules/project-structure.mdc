@@ -1,0 +1,68 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# 項目結構概述
+
+這是一個使用Vue 3和VITE v3.2.7開發的前端CMS網站，主要展示各種UI元件庫並支持通過元件代號組合生成頁面。
+
+## 主要文件
+
+- 入口點：[index.html](mdc:index.html)和[src/main.js](mdc:src/main.js)
+- 主應用元件：[src/App.vue](mdc:src/App.vue)
+- 配置文件：[vite.config.js](mdc:vite.config.js)
+- 套件依賴：[package.json](mdc:package.json)
+- 元件庫說明：[components-library.md](mdc:components-library.md)
+
+## 目錄結構
+
+- `src/views/`: 頁面視圖元件
+  - `src/views/admin/`: 管理頁面元件
+  - `src/views/layout/`: 佈局元件
+- `src/components/`: 可重用元件
+  - `src/components/chart/`: 圖表相關元件
+- `src/router/`: 路由配置，主要文件是[src/router/index.js](mdc:src/router/index.js)
+- `src/plugins/`: 插件配置，如Vuetify和其他依賴項
+- `src/assets/`: 靜態資源文件
+- `src/sass/`: SASS樣式文件
+- `public/`: 靜態資源目錄
+
+## 元件組合系統
+
+本項目實現了一個通過元件代號組合來動態生成頁面的系統。每個元件都有一個唯一的代號，用於在元件組合中引用：
+
+```
+[admin-layout]              // 管理頁面佈局
+  [function-navigation]     // 功能導航
+  [page-view]               // 頁面視圖
+    [data-table]            // 數據表格
+    [pie-chart]             // 餅圖
+```
+
+通過這種方式，開發者可以快速組合出新的頁面，而無需編寫大量模板代碼。詳細信息請參考元件組合生成頁面指南。
+
+## 技術棧
+
+- **前端框架**: Vue 3 ([Vue 3開發指南](mdc:.cursor/rules/vue3-guidelines.mdc))
+- **UI框架**: Vuetify 3 ([Vuetify使用指南](mdc:.cursor/rules/vuetify-guidelines.mdc))
+- **構建工具**: VITE v3.2.7 ([VITE配置指南](mdc:.cursor/rules/vite-config.mdc))
+- **功能模塊**: 多種CMS功能 ([CMS功能指南](mdc:.cursor/rules/cms-features.mdc))
+
+## 情境導向幫助
+
+為了更好地提供幫助，本項目設置了情境導向的規則：
+
+1. [新增頁面](mdc:.cursor/rules/01-new-page-creation.mdc) - 創建新頁面時參考
+2. [頁面客製化](mdc:.cursor/rules/02-page-customization.mdc) - 修改現有頁面時參考
+3. [元件組合生成頁面](mdc:.cursor/rules/03-component-generation.mdc) - 使用元件組合語法時參考
+4. [Bug修復](mdc:.cursor/rules/04-bug-fixing.mdc) - 解決問題時參考
+
+詳細索引請參考[規則索引](mdc:.cursor/rules/00-rules-index.mdc)。
+
+
+
+
+
+
+

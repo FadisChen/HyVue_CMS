@@ -1,0 +1,190 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# 元件組合生成頁面指南
+
+本文檔提供了如何從使用者的自然語言描述中理解並生成頁面的指導。
+
+## 自然語言需求解析
+
+使用者通常會用自然語言描述他們的需求，例如：
+
+> "新增員工列表功能，使用 data-table 組件，欄位為：名字、員工編號、性別，下方提供 pie-chart 顯示部門人數比例"
+
+從這類描述中，需要提取以下關鍵信息：
+
+1. **頁面類型**：「新增員工列表功能」表示需要創建員工管理頁面
+2. **主要元件**：「data-table」和「pie-chart」 
+3. **元件屬性**：「欄位為：名字、員工編號、性別」是 data-table 的屬性
+4. **元件關係**：「下方提供」表示 pie-chart 應在 data-table 下方
+5. **數據關係**：「顯示部門人數比例」表示 pie-chart 的數據內容
+
+## 自然語言到元件結構轉換
+
+### 示例轉換
+
+自然語言：
+> "新增員工列表功能，使用 data-table 組件，欄位為：名字、員工編號、性別，下方提供 pie-chart 顯示部門人數比例"
+
+轉換為結構：
+```
+[admin-layout]
+  [function-navigation]
+  [page-view]
+    [v-container fluid]
+      [v-card]
+        [v-card-title]員工列表[/v-card-title]
+        [v-card-text]
+          [data-table :headers="[
+            {title: '名字', key: 'name'},
+            {title: '員工編號', key: 'employeeId'},
+            {title: '性別', key: 'gender'}
+          ]"]
+        [/v-card-text]
+      [/v-card]
+      [v-card class="mt-4"]
+        [v-card-title]部門人數比例[/v-card-title]
+        [v-card-text]
+          [pie-chart]
+        [/v-card-text]
+      [/v-card]
+    [/v-container]
+```
+
+### 常見需求詞對應表
+
+| 自然語言描述 | 對應結構或元件 |
+|------------|--------------|
+| "新增XX頁面/功能" | 創建新頁面 |
+| "使用XX元件/組件" | 指定主要元件 |
+| "欄位包括/為..." | data-table的headers屬性 |
+| "下方/右側/左側" | 元件的佈局位置 |
+| "顯示XX數據/比例" | 圖表的數據內容 |
+| "可以篩選/搜索" | 添加篩選或搜索功能 |
+| "可編輯/可刪除" | 添加操作按鈕 |
+
+## 元件代號對照表
+
+| 代號 | 功能描述 | 適用場景 |
+|------|---------|---------|
+| admin-layout | 管理員佈局 | 管理頁面的頂層容器 |
+| function-navigation | 功能導航 | 側邊欄導航 |
+| page-view | 頁面視圖 | 頁面內容容器 |
+| data-table | 數據表格 | 展示列表數據 |
+| data-table-server | 服務器數據表格 | 帶分頁的大量數據展示 |
+| pie-chart | 餅圖 | 比例數據可視化 |
+| area-chart | 區域圖 | 趨勢數據可視化 |
+| bar-chart | 柱狀圖 | 類別比較可視化 |
+| line-chart | 折線圖 | 時間序列可視化 |
+| datepicker-modal | 日期選擇器 | 日期選擇 |
+| tree-item | 樹形項目 | 層級數據展示 |
+
+## 自然語言範例及生成代碼
+
+### 範例1: 產品管理頁面
+
+> "建立產品管理頁面，上方需要有搜索框可以搜尋產品名稱，下方使用data-table顯示產品資料，包含產品名稱、價格、庫存、狀態欄位，並且提供編輯和刪除功能"
+
+```vue
+<template>
+  <v-container fluid>
+    <v-card>
+      <v-card-title>
+        產品管理
+        <v-spacer></v-spacer>
+        <v-text-field
+          v-model="search"
+          append-icon="mdi-magnify"
+          label="搜尋產品名稱"
+          single-line
+          hide-details
+          density="compact"
+        ></v-text-field>
+      </v-card-title>
+      <v-card-text>
+        <data-table 
+          :headers="headers" 
+          :items="products"
+          :search="search"
+        >
+          <template v-slot:item.actions="{ item }">
+            <v-btn size="small" color="primary" icon class="mr-2">
+              <v-icon>mdi-pencil</v-icon>
+            </v-btn>
+            <v-btn size="small" color="error" icon>
+              <v-icon>mdi-delete</v-icon>
+            </v-btn>
+          </template>
+        </data-table>
+      </v-card-text>
+    </v-card>
+  </v-container>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import DataTable from '@/components/dataTable.vue';
+
+const search = ref('');
+const headers = ref([
+  { title: '產品名稱', key: 'name' },
+  { title: '價格', key: 'price' },
+  { title: '庫存', key: 'stock' },
+  { title: '狀態', key: 'status' },
+  { title: '操作', key: 'actions', sortable: false }
+]);
+const products = ref([
+  // 產品數據
+]);
+</script>
+```
+
+### 範例2: 數據分析儀表板
+
+> "創建數據儀表板，上半部分左側用pie-chart顯示用戶類型分布，右側用bar-chart顯示各月銷售額，下半部分使用line-chart顯示全年趨勢"
+
+```vue
+<template>
+  <v-container fluid>
+    <v-row>
+      <v-col cols="12" md="6">
+        <v-card>
+          <v-card-title>用戶類型分布</v-card-title>
+          <v-card-text>
+            <pie-chart></pie-chart>
+          </v-card-text>
+        </v-card>
+      </v-col>
+      <v-col cols="12" md="6">
+        <v-card>
+          <v-card-title>各月銷售額</v-card-title>
+          <v-card-text>
+            <bar-chart></bar-chart>
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col cols="12">
+        <v-card>
+          <v-card-title>全年銷售趨勢</v-card-title>
+          <v-card-text>
+            <line-chart></line-chart>
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
+</template>
+
+<script setup>
+import PieChart from '@/components/chart/pieChart.vue';
+import BarChart from '@/components/chart/barChart.vue';
+import LineChart from '@/components/chart/lineChart.vue';
+</script>
+```
+
+
+

@@ -1,0 +1,50 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# VITE 配置指南
+
+本項目使用VITE v3.2.7作為構建工具，配置位於[vite.config.js](mdc:vite.config.js)。
+
+## 主要配置
+
+- 使用`@vitejs/plugin-vue`處理Vue文件
+- 使用`vite-plugin-vuetify`處理Vuetify
+- 定義路徑別名`@`指向`src`目錄
+- 開發服務器端口設置為3000
+
+## 路徑別名
+
+使用`@`引入時表示從src目錄開始的路徑：
+
+```js
+// 正確的引入方式
+import Component from '@/components/Component.vue';
+import { someFunction } from '@/utils/helpers';
+```
+
+## 資源引入
+
+在VITE中，靜態資源可以通過以下方式引入：
+
+```js
+// 引入圖片
+import logo from '@/assets/logo.png';
+
+// 在模板中使用
+<img :src="logo" alt="Logo" />
+
+// 或直接在模板中使用相對路徑
+<img src="@/assets/logo.png" alt="Logo" />
+```
+
+## 環境變數
+
+環境變數必須以`VITE_`開頭才能在客戶端代碼中訪問：
+
+```js
+// 訪問環境變數
+console.log(import.meta.env.VITE_API_URL);
+```
+

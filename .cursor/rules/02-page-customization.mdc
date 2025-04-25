@@ -1,0 +1,178 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# 頁面客製化情境指南
+
+本文檔提供了在 HyVue CMS 系統中客製化現有頁面時需要了解的關鍵知識。
+
+## 常見客製化需求
+
+1. 修改頁面佈局和元件排列
+2. 調整元件樣式和主題
+3. 增加或移除元件
+4. 修改元件交互行為
+5. 添加新的功能或業務邏輯
+
+## Vuetify 主題定制
+
+Vuetify 主題配置位於 [src/plugins/vuetify.js](mdc:src/plugins/vuetify.js)：
+
+```js
+// 定制主題顏色
+const theme = {
+  defaultTheme: 'light',
+  themes: {
+    light: {
+      dark: false,
+      colors: {
+        primary: '#1976D2',
+        secondary: '#424242',
+        // 修改或添加其他顏色
+      },
+    },
+  },
+};
+```
+
+## 常用佈局元件
+
+### 容器和網格系統
+
+```vue
+<v-container fluid> <!-- fluid 表示佔滿整個寬度 -->
+  <v-row>
+    <v-col cols="12" md="6"> <!-- 響應式佈局，在中等屏幕下佔一半寬度 -->
+      <!-- 內容1 -->
+    </v-col>
+    <v-col cols="12" md="6">
+      <!-- 內容2 -->
+    </v-col>
+  </v-row>
+</v-container>
+```
+
+### 卡片元件
+
+```vue
+<v-card>
+  <v-card-title>標題</v-card-title>
+  <v-card-subtitle>副標題</v-card-subtitle>
+  <v-card-text>
+    <!-- 卡片內容 -->
+  </v-card-text>
+  <v-card-actions>
+    <v-btn color="primary">確定</v-btn>
+    <v-btn color="error">取消</v-btn>
+  </v-card-actions>
+</v-card>
+```
+
+## 樣式定制
+
+### 使用 SCSS 變量
+
+```scss
+<style lang="scss" scoped>
+.custom-component {
+  color: $primary; // 使用 Vuetify 定義的主題顏色變量
+  padding: 16px;
+  margin-bottom: 24px;
+  
+  &:hover {
+    background-color: lighten($primary, 20%);
+  }
+}
+</style>
+```
+
+### 自定義屬性綁定
+
+```vue
+<template>
+  <data-table 
+    :items="items" 
+    :headers="headers"
+    :loading="isLoading"
+    :custom-class="tableClass"
+    @item-clicked="handleItemClick"
+  />
+</template>
+
+<script setup>
+import { ref, computed } from 'vue';
+
+const tableClass = computed(() => {
+  return isCompact.value ? 'compact-table' : 'regular-table';
+});
+
+const isCompact = ref(false);
+</script>
+```
+
+## 常見客製化示例
+
+### 增加篩選功能
+
+```vue
+<template>
+  <v-card class="mb-4">
+    <v-card-title>篩選</v-card-title>
+    <v-card-text>
+      <v-row>
+        <v-col cols="12" md="4">
+          <v-text-field 
+            v-model="filters.keyword" 
+            label="關鍵字" 
+            @input="applyFilters"
+          ></v-text-field>
+        </v-col>
+        <v-col cols="12" md="4">
+          <v-select
+            v-model="filters.status"
+            :items="statusOptions"
+            label="狀態"
+            @change="applyFilters"
+          ></v-select>
+        </v-col>
+        <v-col cols="12" md="4">
+          <datepicker-modal v-model="filters.date" @change="applyFilters" />
+        </v-col>
+      </v-row>
+    </v-card-text>
+  </v-card>
+  
+  <data-table :items="filteredItems" :headers="headers" />
+</template>
+```
+
+### 修改圖表樣式
+
+```vue
+<template>
+  <pie-chart :options="chartOptions" :series="chartData" />
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const chartOptions = ref({
+  chart: {
+    type: 'pie',
+    height: 350,
+    toolbar: {
+      show: false
+    }
+  },
+  colors: ['#008FFB', '#00E396', '#FEB019', '#FF4560', '#775DD0'],
+  labels: ['類別A', '類別B', '類別C', '類別D', '類別E'],
+  legend: {
+    position: 'bottom'
+  }
+});
+
+const chartData = ref([44, 55, 13, 43, 22]);
+</script>
+```
+

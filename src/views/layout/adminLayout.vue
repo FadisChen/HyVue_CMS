@@ -74,7 +74,7 @@
             @click="pushLink('component')"
           >
           </v-list-item>
-          <v-list-item title="From" value="From" @click="pushLink('from')">
+          <v-list-item title="Form" value="Form" @click="pushLink('form')">
           </v-list-item>
           <v-list-item title="Table" value="Table" @click="pushLink('table')">
           </v-list-item>

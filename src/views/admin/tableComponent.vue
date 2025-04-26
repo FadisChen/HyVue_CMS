@@ -80,6 +80,8 @@
           <!-- 標籤列 end -->
           <v-row class="mt-0">
             <v-col>
+              <h4 class="text-h6 text-primary font-weight-bold">標準資料表格 [T01]</h4>
+              <v-divider class="pt-1 mb-2"></v-divider>
               <v-table>
                 <thead class="bg-thead">
                   <tr>
@@ -188,6 +190,8 @@
           <!-- 標籤列 end -->
           <v-row class="mt-0">
             <v-col>
+              <h4 class="text-h6 text-primary font-weight-bold">帶圖片的表格 [T02]</h4>
+              <v-divider class="pt-1 mb-2"></v-divider>
               <v-table>
                 <thead class="bg-thead">
                   <tr>

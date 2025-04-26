@@ -1,6 +1,23 @@
 <!-- 桌機版 start-->
 <template>
   <div class="functionList">
+    <!-- 組件庫說明按鈕 start -->
+    <v-dialog v-model="componentLibraryDialog" width="1200">
+      <template v-slot:activator="{ props }">
+        <v-btn icon="mdi-book-open-variant" v-bind="props"></v-btn>
+      </template>
+      <v-card>
+        <v-card-title class="text-h5 bg-primary">
+          組件庫說明
+          <v-spacer></v-spacer>
+        </v-card-title>
+        <v-card-text class="pa-6">
+          <ComponentLibrary />
+        </v-card-text>
+      </v-card>
+    </v-dialog>
+    <!-- 組件庫說明按鈕 end -->
+
     <!-- 暗黑模式 start -->
     <v-btn
       @click="toggleDarkTheme()"
@@ -142,7 +159,12 @@
 <!-- 桌機版 end-->
 
 <script>
+import ComponentLibrary from "@/views/admin/ComponentLibrary.vue";
+
 export default {
+  components: {
+    ComponentLibrary,
+  },
   data: () => ({
     theme: "",
     themeDark: false,
@@ -158,6 +180,7 @@ export default {
     cookie: "",
     btnSize: "",
     colorCookie: "",
+    componentLibraryDialog: false,
   }),
   methods: {
     toggleDarkTheme() {

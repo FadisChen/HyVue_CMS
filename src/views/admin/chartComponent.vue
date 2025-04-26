@@ -7,13 +7,13 @@
     <v-row>
       <v-col md="8" cols="12">
         <v-card class="pa-2" height="100%">
-          <h4 class="text-h6 text-primary font-weight-bold">AreaChart</h4>
+          <h4 class="text-h6 text-primary font-weight-bold">面積圖 [CH01]</h4>
           <v-divider class="pt-2 mb-2"></v-divider>
           <areaChart /> </v-card
       ></v-col>
       <v-col md="4" sm="6" cols="12">
         <v-card class="pa-2" style="height: 100%">
-          <h4 class="text-h6 text-primary font-weight-bold">Pie 圓餅圖</h4>
+          <h4 class="text-h6 text-primary font-weight-bold">圓餅圖 [CH02]</h4>
           <v-divider class="pt-2 mb-2"></v-divider>
           <div class="d-flex align-center" style="height: 90%">
             <PieChart />
@@ -22,21 +22,21 @@
       </v-col>
       <v-col md="4" sm="6" cols="12">
         <v-card class="pa-2 h-100">
-          <h4 class="text-h6 text-primary font-weight-bold">長條圖+折線圖</h4>
+          <h4 class="text-h6 text-primary font-weight-bold">長條圖+折線圖 [CH05]</h4>
           <v-divider class="pt-2 mb-2"></v-divider>
           <lineAndBarChart />
         </v-card>
       </v-col>
       <v-col md="4" sm="6" cols="12">
         <v-card class="pa-2 h-100">
-          <h4 class="text-h6 text-primary font-weight-bold">長條圖</h4>
+          <h4 class="text-h6 text-primary font-weight-bold">長條圖 [CH03]</h4>
           <v-divider class="pt-2 mb-2"></v-divider>
           <BarChart />
         </v-card>
       </v-col>
       <v-col md="4" sm="6" cols="12">
         <v-card class="pa-2 h-100">
-          <h4 class="text-h6 text-primary font-weight-bold">Line 折線圖</h4>
+          <h4 class="text-h6 text-primary font-weight-bold">折線圖 [CH04]</h4>
           <v-divider class="pt-2 mb-2"></v-divider>
           <LineChart />
         </v-card>

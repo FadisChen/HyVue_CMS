@@ -38,6 +38,12 @@
             </v-col>
           </v-row>
           <!-- 標籤列 end -->
+          <v-row>
+            <v-col cols="12">
+              <h4 class="text-h6 text-primary font-weight-bold">標準卡片 [C01]</h4>
+              <v-divider class="pt-1 mb-2"></v-divider>
+            </v-col>
+          </v-row>
           <v-row class="albumCardList mt-0">
             <v-col
               v-for="item in 10"
@@ -126,6 +132,12 @@
             </v-col>
           </v-row>
           <!-- 標籤列 end -->
+          <v-row>
+            <v-col cols="12">
+              <h4 class="text-h6 text-primary font-weight-bold">圖文卡片 [C02]</h4>
+              <v-divider class="pt-1 mb-2"></v-divider>
+            </v-col>
+          </v-row>
           <v-row class="albumCardList list">
             <v-col
               v-for="item in 10"
@@ -181,6 +193,12 @@
     <v-card class="mb-5">
       <div class="">
         <v-container class="container">
+          <v-row>
+            <v-col cols="12">
+              <h4 class="text-h6 text-primary font-weight-bold">照片網格卡片 [C03]</h4>
+              <v-divider class="pt-1 mb-2"></v-divider>
+            </v-col>
+          </v-row>
           <v-row class="pa-4">
             <v-col
               class="px-1"

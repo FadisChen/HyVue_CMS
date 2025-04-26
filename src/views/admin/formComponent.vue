@@ -19,7 +19,7 @@
       <div height="300" v-show="expand">
         <v-card class="mb-6">
           <div class="pa-2">
-            <h4 class="text-h6 text-primary font-weight-bold">查詢</h4>
+            <h4 class="text-h6 text-primary font-weight-bold">查詢 [F01]</h4>
             <v-divider class="pt-1 mb-2"></v-divider>
             <v-form>
               <v-container style="max-width: unset">
@@ -57,7 +57,7 @@
     <v-row class="">
       <v-col md="6" cols="12">
         <v-card class="pa-2 h-100">
-          <h4 class="text-h6 text-primary font-weight-bold">文字標準表單</h4>
+          <h4 class="text-h6 text-primary font-weight-bold">文字標準表單 [F01]</h4>
           <v-divider class="pt-1 mb-2"></v-divider>
           <v-form>
             <v-container>
@@ -92,7 +92,7 @@
       </v-col>
       <v-col md="6" cols="12">
         <v-card class="pa-2 h-100">
-          <h4 class="text-h6 text-primary font-weight-bold">日期選擇</h4>
+          <h4 class="text-h6 text-primary font-weight-bold">日期選擇 [F02]</h4>
           <v-divider class="pt-1 mb-2"></v-divider>
           <v-form>
             <v-container>
@@ -159,7 +159,7 @@
       <!-- 單選核取表單 start -->
       <v-col md="6" cols="12">
         <v-card class="pa-2 h-100">
-          <h4 class="text-h6 text-primary font-weight-bold">單選核取表單</h4>
+          <h4 class="text-h6 text-primary font-weight-bold">單選核取表單 [F03]</h4>
           <v-divider class="pt-1 mb-2"></v-divider>
           <v-form>
             <v-container>
@@ -231,7 +231,7 @@
       <!-- 複選核取表單 start -->
       <v-col md="6" cols="12">
         <v-card class="pa-2 h-100">
-          <h4 class="text-h6 text-primary font-weight-bold">複選核取表單</h4>
+          <h4 class="text-h6 text-primary font-weight-bold">複選核取表單 [F04]</h4>
           <v-divider class="pt-1 mb-2"></v-divider>
           <v-form>
             <v-container>

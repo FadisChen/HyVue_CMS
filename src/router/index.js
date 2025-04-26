@@ -19,8 +19,8 @@ const routes = [
         component: () => import("@/views/admin/defaultComponent.vue"),
       },
       {
-        path: "from",
-        component: () => import("@/views/admin/fromComponent.vue"),
+        path: "form",
+        component: () => import("@/views/admin/formComponent.vue"),
       },
       {
         path: "table",
@@ -45,6 +45,10 @@ const routes = [
       {
         path: "mediaPhoto",
         component: () => import("@/views/admin/mediaPhotoComponent.vue"),
+      },
+      {
+        path: "component-library",
+        component: () => import("@/views/admin/ComponentLibrary.vue"),
       },
     ],
   },

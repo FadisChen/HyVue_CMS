@@ -50,6 +50,10 @@ const routes = [
         path: "component-library",
         component: () => import("@/views/admin/ComponentLibrary.vue"),
       },
+      {
+        path: "employees",
+        component: () => import("@/views/admin/employeeList.vue"),
+      },
     ],
   },
   {

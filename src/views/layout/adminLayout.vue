@@ -114,6 +114,26 @@
           </v-list-item>
         </v-list-group>
         <!-- Basic Layout end -->
+        
+        <!-- 員工管理 start -->
+        <v-list-group value="Employee Management">
+          <template v-slot:activator="{ props }">
+            <v-list-item
+              prepend-icon="mdi-account-group"
+              v-bind="props"
+              title="員工管理"
+            >
+            </v-list-item>
+          </template>
+          <v-list-item
+            title="員工列表"
+            value="employees"
+            @click="pushLink('employees')"
+          >
+          </v-list-item>
+        </v-list-group>
+        <!-- 員工管理 end -->
+        
         <v-divider class="ma-1"></v-divider>
         <!-- 登入頁面 start -->
         <v-list-group value="login">
